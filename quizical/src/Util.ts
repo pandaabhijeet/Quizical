@@ -1,5 +1,2 @@
-function Util(){
 
-}
-
-export default Util;
+export const shuffleArray = (array : any[]) => [...array].sort(() => Math.random() - 0.5);
