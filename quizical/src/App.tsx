@@ -1,23 +1,47 @@
 import React, { useState } from "react";
 import QuestionCard from "./components/QuestionCard";
 import { fetchQuizQuestions } from "./API";
-import { Difficulty } from "./API";
+import { Difficulty, QuestionState } from "./API";
+import { log } from "console";
 
-
+type AnswerObject = {
+  question: string;
+  answer: string;
+  correct: boolean;
+  correctAnswer: string;
+};
 
 function App() {
-  const [Loading, setLoading] = useState(false);
-  const [questions, setQuestions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [questions, setQuestions] = useState<QuestionState[]>([]);
   const [number, setNumber] = useState(0);
-  const [userAnswer, setUserAnswer] = useState([]);
+  const [userAnswer, setUserAnswer] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
 
   const TOTAL_QUESTIONS = 10;
 
-  console.log(fetchQuizQuestions(TOTAL_QUESTIONS,Difficulty.MEDIUM));
+  const startTrivia = async () => {
+    setLoading(true);
+    setGameOver(false);
 
-  const startTrivia = async () => {};
+    try {
+      const newQuestions = await fetchQuizQuestions(
+        TOTAL_QUESTIONS,
+        Difficulty.MEDIUM
+      );
+
+      console.log(newQuestions);
+
+      setQuestions(newQuestions);
+      setScore(0);
+      setUserAnswer([]);
+      setNumber(0);
+      setLoading(false);
+    } catch (error) {
+      console.log("Error in fetching: " + error);
+    }
+  };
 
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {};
 
@@ -26,11 +50,16 @@ function App() {
   return (
     <div className="App">
       <h1>QUIZICAL</h1>
-      <button className="startQuiz" onClick={startTrivia}>
-        Start
-      </button>
-      <p className="score">Score:</p>
-      <p>Loading Questions...</p>
+
+      {gameOver || userAnswer.length === TOTAL_QUESTIONS ? (
+        <button className="startQuiz" onClick={startTrivia}>
+          Start
+        </button>
+      ) : null}
+
+      {!gameOver ? <p className="score">Score:</p> : null}
+      {loading ? <p>Loading Questions...</p> : null}
+
       {/* <QuestionCard
         questionNum={number + 1}
         totalQuestions={TOTAL_QUESTIONS}

@@ -14,7 +14,7 @@ export type QuestionState = Question & {answers : string[]};
 export enum Difficulty{
     EASY = "easy",
     MEDIUM ="medium",
-    Hard = "Hard"
+    Hard = "hard"
 }
 
 //https://opentdb.com/api.php?amount=10
