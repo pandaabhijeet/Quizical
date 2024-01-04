@@ -42,9 +42,9 @@ align-items : center;
 
 h1{
     font-family : Nunito , sans-serif;
-    background-image : linear-gradient(180deg, #fff, #87f1ff);
+    background-image : linear-gradient(180deg, #fff, #0099FF);
     background-size: 100%;
-    border-radius : 5px;
+    border-radius : 10px;
     padding-left: 20px;
     padding-right: 20px;
     --webkit-background-clip: text;
@@ -60,11 +60,22 @@ h1{
     margin: 20px;
 }
 
-.start, .next{
+.start{
     cursor: pointer;
-    backgorund: linear-gradient(180 deg, #fff, %ffcc91);
+    background-image: linear-gradient(180deg, #fff, #DAF7A6);
     border: 2px solid #d38558;
-    border-radius: 10px;
+    border-radius: 5px;
+    height:40px;
+    margin: 20pz 0;
+    padding: 0 40px;
+}
+
+.next{
+    margin-top: 80px;
+    cursor: pointer;
+    background: linear-gradient(180deg, #fff, #0099FF);
+    border: 2px solid #d38558;
+    border-radius: 5px;
     height:40px;
     margin: 20pz 0;
     padding: 0 40px;
