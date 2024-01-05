@@ -81,7 +81,7 @@ function App() {
         <h1>QuizicaL</h1>
 
         {gameOver || userAnswer.length === TOTAL_QUESTIONS ? (
-          <button className="startQuiz" onClick={startTrivia}>
+          <button className="start" onClick={startTrivia}>
             Start
           </button>
         ) : null}

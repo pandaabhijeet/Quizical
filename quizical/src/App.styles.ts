@@ -62,17 +62,8 @@ h1{
     margin: 20px;
 }
 
-.start{
-    cursor: pointer;
-    background-image: linear-gradient(180deg, #fff, #DAF7A6);
-    border: 2px solid #d38558;
-    border-radius: 5px;
-    height:40px;
-    margin: 20pz 0;
-    padding: 0 40px;
-}
 
-.next{
+.start, .next{
     margin-top: 80px;
     cursor: pointer;
     background: linear-gradient(180deg, #fff, #0099FF);
@@ -84,7 +75,7 @@ h1{
 }
 
 .start{
-    max-width : 40px;
+    max-width : 200px;
 }
 `
 
