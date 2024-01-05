@@ -33,11 +33,12 @@ align-items : center;
 
 > p {
     color : #fff;
+    font-size : 20px;
 }
 
 .score {
     color : #fff
-    font-size : 120px;
+    
     margin : 0;
 }
 
