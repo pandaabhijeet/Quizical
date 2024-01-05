@@ -1,6 +1,7 @@
 import styled,{ createGlobalStyle } from "styled-components";
 import galaxyImage from './images/galaxy.jpg';
 import quizImage from './images/quiz.jpg';
+import neon from './images/neon.jpg';
 
 export const GlobalStyle = createGlobalStyle `
 
@@ -9,7 +10,7 @@ html{
 }
 
 body{
-    background-image: url(${quizImage});
+    background-image: url(${neon});
     background-size : cover;
     margin : 0;
     padding : 0 20px;
@@ -36,7 +37,7 @@ align-items : center;
 
 .score {
     color : #fff
-    font-size : 5rem;
+    font-size : 120px;
     margin : 0;
 }
 
